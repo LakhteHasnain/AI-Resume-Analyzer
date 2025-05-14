@@ -103,8 +103,8 @@ npm run dev
 The backend exposes the following main endpoints:
 
 ```
-POST /api/job-seeker/analyze - Analyze a single resume
-POST /api/hr/analyze-batch - Analyze multiple resumes against a job description
+POST /analyze - Analyze a single resume
+POST /analyze-batch - Analyze multiple resumes against a job description
 
 ```
 
