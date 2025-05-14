@@ -1,0 +1,492 @@
+/* Modern CSS for the Resume Analyzer */
+
+.resume-analyzer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #1a2b42;
+}
+
+.analyzer-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.app-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a2b42;
+  margin: 0;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #4361ee;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: rgba(67, 97, 238, 0.08);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+}
+
+.analyzer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #374151;
+  display: flex;
+  align-items: center;
+}
+
+.required-mark {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.file-input-wrapper {
+  position: relative;
+  height: 120px;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.file-input-wrapper:hover {
+  border-color: #4361ee;
+  background-color: rgba(67, 97, 238, 0.02);
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.file-input-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: #6b7280;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.file-input-placeholder svg {
+  color: #4361ee;
+}
+
+.file-count {
+  font-size: 0.875rem;
+  color: #4361ee;
+  font-weight: 500;
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.job-description-input, .api-key-input {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.job-description-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.job-description-input:focus, .api-key-input:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+.submit-button {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  height: 48px;
+}
+
+.submit-button:hover {
+  background-color: #3a56e2;
+}
+
+.submit-button:active {
+  transform: translateY(1px);
+}
+
+.submit-button:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.error-message svg {
+  flex-shrink: 0;
+  color: #ef4444;
+}
+
+.error-message p {
+  margin: 0;
+}
+
+/* Results Styling */
+.results-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+}
+
+.results-header {
+  margin-bottom: 1.5rem;
+}
+
+.results-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+.job-description-display {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #4361ee;
+}
+
+.job-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.job-label-text {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.job-title {
+  font-weight: 400;
+  color: #1a2b42;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.results-table th {
+  text-align: left;
+  padding: 1rem;
+  background-color: #f9fafb;
+  color: #4b5563;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rank-header {
+  width: 70px;
+}
+
+.name-header {
+  width: 20%;
+}
+
+.skills-header {
+  width: 40%;
+}
+
+.score-header {
+  width: 90px;
+  text-align: center;
+}
+
+.actions-header {
+  width: 100px;
+  text-align: center;
+}
+
+.results-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.results-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.results-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.rank-cell {
+  width: 60px;
+}
+
+.rank-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.name-cell {
+  font-weight: 500;
+}
+
+.skills-cell {
+  max-width: 250px;
+  width: 250px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #e0e7ff;
+  color: #4338ca;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-skills {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.score-cell {
+  width: 90px;
+  text-align: center;
+}
+
+.score-badge {
+  
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.actions-cell {
+  width: 100px;
+  text-align: center;
+}
+
+.view-details-button {
+  padding: 0.4rem 0.75rem;
+  background-color: transparent;
+  color: #4361ee;
+  border: 1px solid #4361ee;
+  border-radius: 4px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.view-details-button:hover {
+  background-color: #4361ee;
+  color: white;
+}
+
+.view-details-button[aria-expanded="true"] {
+  background-color: #4361ee;
+  color: white;
+}
+
+.expanded-row {
+  background-color: #f8fafc;
+}
+
+.details-row {
+  background-color: #f8fafc;
+}
+
+.details-panel {
+  padding: 1.5rem;
+}
+
+.details-panel h4 {
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  color: #1a2b42;
+}
+
+.details-panel h4:not(:first-child) {
+  margin-top: 1.25rem;
+}
+
+.analysis-text {
+  margin: 0;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.all-skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-analyzer-container {
+    padding: 1rem;
+  }
+  
+  .form-card, .results-container {
+    padding: 1.5rem;
+  }
+  
+  .analyzer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .back-button {
+    margin-bottom: 0.5rem;
+  }
+  
+  .results-table th, .results-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .skills-cell {
+    max-width: 150px;
+  }
+}
